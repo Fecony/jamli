@@ -1,8 +1,15 @@
 {
   "version": "0.1.0",
   "license": "MIT",
+  "name": "jamli",
+  "author": "Ricards Tagils",
   "main": "dist/index.js",
+  "module": "dist/jamli.esm.js",
   "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fecony/jamli.git"
+  },
   "files": [
     "dist",
     "src"
@@ -15,12 +22,19 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "commit": "git-cz"
   },
   "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
     }
   },
   "prettier": {
@@ -29,10 +43,10 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "jamli",
-  "author": "Ricards Tagils",
-  "module": "dist/jamli.esm.js",
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.1",
