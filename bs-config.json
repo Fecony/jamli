@@ -1,0 +1,14 @@
+{
+  "port": 3045,
+  "files": ["./demo/**/*.{html,css,js}"],
+  "open": true,
+  "logLevel": "silent",
+  "logPrefix": "Jamli",
+  "server": {
+    "baseDir": ["./", "./demo"],
+    "index": "index.html",
+    "middleware": {
+      "0": null
+    }
+  }
+}

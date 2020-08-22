@@ -1,14 +1,26 @@
 {
+  "name": "jamli",
   "version": "0.1.0",
   "license": "MIT",
-  "name": "jamli",
   "author": "Ricards Tagils",
   "main": "dist/index.js",
   "module": "dist/jamli.esm.js",
+  "browser": "dist/jamli.umd.production.min.js",
+  "unpkg": "dist/jamli.umd.development.js",
   "typings": "dist/index.d.ts",
+  "keywords": [
+    "slider",
+    "javascript",
+    "simple",
+    "carousel",
+    "responsive"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Fecony/jamli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fecony/jamli/issues"
   },
   "files": [
     "dist",
@@ -18,14 +30,15 @@
     "node": ">=10"
   },
   "scripts": {
+    "dev": "lite-server",
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build --format cjs,esm,umd --name 'Jamli'",
     "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
+    "test:coverage": "tsdx test --coverage",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "commit": "git-cz"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint",
@@ -43,11 +56,13 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "peerDependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
+    "lite-server": "^2.5.4",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.1",
     "typescript": "^3.9.7"
