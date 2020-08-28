@@ -37,7 +37,10 @@
     "test:watch": "tsdx test --watch",
     "test:coverage": "tsdx test --coverage",
     "lint": "tsdx lint",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "preversion": "yarn test",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags"
   },
   "husky": {
     "hooks": {
@@ -50,6 +53,11 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -60,6 +68,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
+    "conventional-changelog-cli": "^2.1.0",
     "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
     "lite-server": "^2.5.4",
